@@ -7,6 +7,7 @@ MCIKit é um _framework_ da Merci para seus parceiros.
 - iOS: 9.0 ou superior
 - Swift: 5.0 ou superior
 - CocoaPods
+- Info.plist
 
 Dependencias do CocoaPods:
 
@@ -14,6 +15,26 @@ Dependencias do CocoaPods:
 - Kingfisher - :branch => 'ios9'
 - KeychainAccess - 3.2.0
 - TPKeyboardAvoiding - 1.3
+
+Dependencias do Info.plist:
+
+```xml
+<key>NSCameraUsageDescription</key>
+<string>DESCRIÇÃO</string>
+<key>NSFaceIDUsageDescription</key>
+<string>DESCRIÇÃO</string>
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>DESCRIÇÃO</string>
+<key>NSPhotoLibraryUsageDescription</key>
+<string>DESCRIÇÃO</string>
+<key>LSApplicationQueriesSchemes</key>
+<array>
+    <string>waze</string>
+    <string>comgooglemaps</string>
+    <string>uber</string>
+    <string>cydia</string>
+</array>
+```
 
 ## Como usar
 
