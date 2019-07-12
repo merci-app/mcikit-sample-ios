@@ -1,20 +1,33 @@
 # MCIKit iOS
 
-MCIKit is a SDK from Merci for your partners.
+MCIKit é um _framework_ da Merci para seus parceiros.
 
-## How to use
+## Pré-requisitos
 
-### Table of contents
-- [Initialization](#initialization)
+- iOS: 9.0 ou superior
+- Swift: 5.0 ou superior
+- CocoaPods
+
+Dependencias do CocoaPods:
+
+- Alamofire - 4.8.2
+- Kingfisher - :branch => 'ios9'
+- KeychainAccess - 3.2.0
+- TPKeyboardAvoiding - 1.3
+
+## Como usar
+
+### Tabela de conteúdos
+- [Inicialização](#inicialização)
 - [Delegate](#delegate)
-- [Authenticate](#authenticate)
-- [Revoke](#revoke)
-- [Launch](#launch)
-- [Notifications](#notifications)
+- [Autenticação](#autenticação)
+- [Desautenticar](#desautenticar)
+- [Apresentar](#apresentar)
+- [Notificações](#notificações)
 
-### Initialization
+### Inicialização
 
-The framework inicialization should be place on application delegate as follows:
+O framework deverá ser iniciado dentro do _application delegate_ como a seguir:
 
 ```swift
 import UIKit
@@ -46,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ### Delegate
 
-Delegate instruction is optional and follows this `protocol`:
+A instrução de delegação é opcional e utiliza o seguinte `protocol`:
 
 ```swift
 public protocol MerciDelegate {
@@ -55,7 +68,7 @@ public protocol MerciDelegate {
 }
 ```
 
-Here is a sample implementation if necessary:
+Caso seja necessário implementar, segue abaixo um exemplo:
 
 ```swift
 import UIKit
@@ -75,10 +88,9 @@ class SampleDelegate: MerciDelegate {
 }
 ```
 
+### Autenticação
 
-### Authenticate
-
-For use the framework features the application need authenticate the user as show below:
+Para utilizar os recursos do framework é necessário autenticar o usuário como exibido a seguir:
 
 ```swift
 import MCIKit
@@ -96,15 +108,15 @@ Merci.authenticate(cpf: <#String#>) { [weak self] (result) in
 }
 ```
 
-If the application was authenticated the framework provide a simple function to verify user session is available as show below:
+Se o aplicativo já realizou a autenciação o framework fornece uma função para verificar se o usuário possui um sessão disponível ou não como mostra a seguir:
 
 ```swift
 Merci.isAuthenticated()
 ```
 
-### Revoke
+### Desautenticar
 
-The revoke was designed to desauthenticate user from current session as shown below:
+Esta função é utilizada para revogar a seção de um usuário já autenticado:
 
 ```swift
 Merci.revokeAuthentication { [weak self] (result) in
@@ -118,9 +130,9 @@ Merci.revokeAuthentication { [weak self] (result) in
 }
 ```
 
-### Launch
+### Apresentar
 
-The framework has a feature launch with this you can open vouchers and purchase them as shown below:
+O framework tem o recurso de apresentar, com isso é possível abrir uma tela para a aquisição de _voucher_ de um estabelecimento. Para isso é necessário informar o identifcador do estabelecimento como mostra a seguir:
 
 ```swift
 import UIKit
@@ -132,25 +144,25 @@ Merci.launch(
 )
 ```
 
-### Notifications
+### Notificações
 
-The framework use the new swift structure and place the notifcations on Merci, if need listean events:
+O framework usa a nova estrutura do _swift_ e coloca as `Notification.Name` dentro do `Merci`. Caso seja necessáro escutar segue os eventos gerados pelo framework:
 
 ```swift
-//🎟 Merchant Open
+//🎟 O establecimento foi aberto
 Merci.merchantOpenedNotification
 
-//🎟 Merchant Clodsed
+//🎟 O estabelecimento foi fechado
 Merci.merchantClosedNotification
 
-//💵 Checkout Started
+//💵 O pagamento foi iniciado
 Merci.checkoutStartedNotification
 
-//💵 Checkout Completed
+//💵 O pagamento foi concluído
 Merci.checkoutCompletedNotification
 ```
 
-Here is a sample:
+Segue um exemplo:
 
 ```swift
 extension SampleVC {
@@ -164,7 +176,7 @@ extension SampleVC {
     }
     
     @objc fileprivate func log(_ notification: Notification) {
-        MCILog("Sample: Did Receive notification with name: \(notification.name)")
+        MCILog("Sample: notificação recebida: \(notification.name)")
     }
     
     private func unregisterNotifications() {
