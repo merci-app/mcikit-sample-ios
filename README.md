@@ -1,7 +1,7 @@
 # Configurações Merci-Kit iOS
 
 ## Pré-Requisitos
-````
+````groovy
     - iOS: 9.0 ou superior
     - Swift: 5.0 ou superior
     - CocoaPods
@@ -11,7 +11,7 @@
 ## Dependências:
 
 ### CocoaPods
-````
+````groovy
     - Alamofire - 4.8.2
     - Kingfisher - :branch => 'ios9'
     - KeychainAccess - 3.2.0
