@@ -12,10 +12,10 @@
 
 ### CocoaPods
 ````
-- Alamofire - 4.8.2
-- Kingfisher - :branch => 'ios9'
-- KeychainAccess - 3.2.0
-- TPKeyboardAvoiding - 1.3
+    - Alamofire - 4.8.2
+    - Kingfisher - :branch => 'ios9'
+    - KeychainAccess - 3.2.0
+    - TPKeyboardAvoiding - 1.3
 ````
 
 ### Info.plist:
@@ -38,7 +38,7 @@
 ````
 
 ## Inicialização
-A framework deverá ser iniciada dentro do `_application delegate_` como a seguir:
+A framework deverá ser iniciada dentro do `application delegate` como a seguir:
 
 ````swift
 import UIKit
@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ````
 
-A instrução de delegação é opcional e utiliza o seguinte `_protocol_`:
+A instrução de delegação é opcional e utiliza o seguinte `protocol`:
 ````swift
 public protocol MerciDelegate {
     func supportFlow(reason: String?) -> UIViewController?
