@@ -1,24 +1,25 @@
-# MCIKit iOS
+# Configurações Merci-Kit iOS
 
 MCIKit é um _framework_ da Merci para seus parceiros.
 
-## Pré-requisitos
+## Pre-Requisitos
+````
+    - iOS: 9.0 ou superior
+    - Swift: 5.0 ou superior
+    - CocoaPods
+    - Info.plist
+````
+## Dependencias:
 
-- iOS: 9.0 ou superior
-- Swift: 5.0 ou superior
-- CocoaPods
-- Info.plist
-
-Dependencias do CocoaPods:
-
+### CocoaPods
+````
 - Alamofire - 4.8.2
 - Kingfisher - :branch => 'ios9'
 - KeychainAccess - 3.2.0
 - TPKeyboardAvoiding - 1.3
-
-Dependencias do Info.plist:
-
-```xml
+````
+### Info.plist:
+````xml
 <key>NSCameraUsageDescription</key>
 <string>DESCRIÇÃO</string>
 <key>NSFaceIDUsageDescription</key>
@@ -34,7 +35,7 @@ Dependencias do Info.plist:
     <string>uber</string>
     <string>cydia</string>
 </array>
-```
+````
 
 ## Como usar
 
