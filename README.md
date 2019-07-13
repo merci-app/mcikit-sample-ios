@@ -2,7 +2,7 @@
 
 ## Pré-Requisitos
 ````groovy
-    - iOS: 9.0 ou superior
+    - iOS version: 9.0 ou superior
     - Swift: 5.0 ou superior
     - CocoaPods
     - Info.plist
