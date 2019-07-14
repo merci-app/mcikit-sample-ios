@@ -41,5 +41,20 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSCameraUsageDescription</key>
+    <string>DESCRIÇÃO</string>
+    <key>NSFaceIDUsageDescription</key>
+    <string>DESCRIÇÃO</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>DESCRIÇÃO</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>DESCRIÇÃO</string>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>waze</string>
+        <string>comgooglemaps</string>
+        <string>uber</string>
+        <string>cydia</string>
+    </array>
 </dict>
 </plist>

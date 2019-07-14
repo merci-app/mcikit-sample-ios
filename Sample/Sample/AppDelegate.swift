@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MCIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        Merci.instantiate(
+            clientId: <#client id: String#>,
+            clientSecret: <#client secret: String#>,
+            environment: <#environment: MerciEnvironment#>,
+            primaryColor: <#primary color: UIColor?#>,
+            secondaryColor: <#secondary color: UIColor?#>
+        )
         
         return true
     }

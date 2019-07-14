@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MCIKit
 
 enum SampleSection {
     case auth
@@ -31,34 +32,80 @@ final class SampleVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerNotifications()
     }
     
     // MARK: - TableViewDelegate Methods
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        let tableSection = tableSchema[indexPath.section]
+        let row = tableSection.rows[indexPath.row]
+        
+        switch tableSection.section {
+        case .auth:
+            if case .auth = row, Merci.isAuthenticated() {
+                return .leastNonzeroMagnitude
+            }
+                
+            if case .revoke = row, !Merci.isAuthenticated() {
+                return .leastNonzeroMagnitude
+            }
+            
+        case .method:
+            if case .launch = row, !Merci.isAuthenticated() {
+                return .leastNonzeroMagnitude
+            }
+        }
+        
+        return UITableView.automaticDimension
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let tableSection = tableSchema[indexPath.section]
+        
+        switch tableSection.rows[indexPath.row] {
+        case .auth:
+            Merci.authenticate(cpf: <#cpf: String#>) { [weak self] (result) in
+                guard let self = self else { return }
+                
+                switch result {
+                case .success:
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                case .failure(let error):
+                    debugPrint(error)
+                }
+            }
+        
+        case .revoke:
+            Merci.revokeAuthentication { [weak self] (result) in
+                guard let self = self else { return }
+                debugPrint(result)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        
+        case .launch:
+            Merci.launch(viewController: self, module: .merchant(<#merchant id: String#>), transition: .crossDissolve) { (result) in
+                switch result {
+                case .success:
+                    debugPrint("Merchant available.")
+
+                case .failure(let error):
+                    debugPrint(error)
+                }
+            }
+        }
     }
 
     // MARK: - Memory Management
     
     deinit {
         print("\(String(describing: self)) -> deinit")
-        unregisterNotifications()
-    }
-    
-}
-
-extension SampleVC {
-    
-    private func registerNotifications() {
-    }
-    
-    @objc fileprivate func log(_ notification: Notification) {
-        print("MerciKit: Did Receive notification with name: \(notification.name)")
-    }
-    
-    private func unregisterNotifications() {
     }
     
 }
