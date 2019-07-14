@@ -1,7 +1,7 @@
 # Configurações Merci-Kit iOS
 
 ## Pré-Requisitos
-````groovy
+````ruby
     - iOS version: 9.0 ou superior
     - Swift: 5.0 ou superior
     - CocoaPods
@@ -11,7 +11,7 @@
 ## Dependências:
 
 ### CocoaPods
-````groovy
+````ruby
     - Alamofire - 4.8.2
     - Kingfisher - :branch => 'ios9'
     - KeychainAccess - 3.2.0
@@ -56,6 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Merci.instantiate(
             clientId: <#String#>,
             clientSecret: <#String#>,
+            environment: <#MerciEnvironment>,
             primaryColor: <#UIColor?#>,
             secondaryColor: <#UIColor?#>,
             homeImage: <#UIImage?#>,
