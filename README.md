@@ -37,6 +37,14 @@
 </array>
 ````
 
+## Configuração
+Para configurar o MCIKit em seu projeto adicione as dependências no `Podfile`:
+
+```ruby
+    pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher', :branch => 'ios9'
+    pod 'MCIKit', :git =>'git@github.com:merci-app/mcikit-podspec.git', :tag => "0.1.0"
+```
+
 ## Inicialização
 A framework deverá ser iniciada dentro do `application delegate` como a seguir:
 
