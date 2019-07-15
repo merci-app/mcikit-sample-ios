@@ -118,13 +118,13 @@ Merci.authenticate(cpf: <#String#>) { [weak self] (result) in
 Para realizar o logout:
 ````swift
 Merci.revokeAuthentication { [weak self] (result) in
-switch result {
-case .success:
-debugPrint("OK")
+    switch result {
+    case .success:
+        debugPrint("OK")
 
-case .failure(error)
-debugPrint(error)
-}
+    case .failure(error)
+        debugPrint(error)
+    }
 }
 ````
 
@@ -141,10 +141,15 @@ Para iniciar uma venda direta, é necessário chamar o método abaixo, informand
 import UIKit
 import MCIKit
 
-Merci.launch(
-    viewController: <#UIViewController#>,
-    module: .merchant(<#merchant id: String#>)
-)
+Merci.launch(viewController: <#UIViewController#>, module: .merchant(<#merchant id: String#>)) { result in 
+    switch result {
+    case .success:
+    debugPrint("Merchant available.")
+    
+    case .failure(let error):
+    debugPrint("Merchant not found.")
+    }
+}
 ````
 
 ---
