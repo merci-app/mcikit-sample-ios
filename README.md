@@ -42,7 +42,7 @@ A framework deverá ser iniciada dentro do `application delegate` como a seguir:
 
 ````swift
 import UIKit
-import MCIKit
+import MerciKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -73,14 +73,14 @@ A instrução de delegação é opcional e utiliza o seguinte `protocol`:
 ````swift
 public protocol MerciDelegate {
     func supportFlow(reason: String?) -> UIViewController?
-    func loadingFlow() -> UIViewController
+    func authenticationFlow() -> UIViewController
 }
 ````
 
 Caso seja necessário implementar, segue abaixo um exemplo:
 ````swift
 import UIKit
-import MCIKit
+import MerciKit
 
 class SampleDelegate: MerciDelegate {
 
@@ -89,7 +89,7 @@ class SampleDelegate: MerciDelegate {
         return nil
     }
     
-    func loadingFlow() -> UIViewController {
+    func authenticationFlow() -> UIViewController {
         return UIViewController()
     }
     
@@ -100,7 +100,7 @@ class SampleDelegate: MerciDelegate {
 
 Para utilizar os recursos da framework é necessário autenticar o usuário como exibido a seguir:
 ````swift
-import MCIKit
+import MerciKit
 
 Merci.authenticate(cpf: <#String#>) { [weak self] (result) in
     guard let self = self else { return }
@@ -139,7 +139,7 @@ Merci.isAuthenticated()
 Para iniciar uma venda direta, é necessário chamar o método abaixo, informando o identifcador do estabelecimento como mostra a seguir:
 ````swift
 import UIKit
-import MCIKit
+import MerciKit
 
 Merci.launch(viewController: <#UIViewController#>, module: .merchant(<#merchant id: String#>)) { result in 
     switch result {
@@ -148,6 +148,22 @@ Merci.launch(viewController: <#UIViewController#>, module: .merchant(<#merchant 
     
     case .failure(let error):
     debugPrint("Merchant not found.")
+    }
+}
+````
+
+## Iniciar a marketpay
+
+Para iniciar a marketpay, é necessário chamar o método abaixo:
+
+````swift
+Merci.launch(viewController: self, module: .marketpay) { (result) in
+    switch result {
+        case .success:
+            debugPrint("OK.")
+
+        case .failure(let error):
+            debugPrint(error)
     }
 }
 ````
