@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MCIKit
+import MerciKit
 
 enum SampleSection {
     case auth
@@ -18,6 +18,7 @@ enum SampleRow {
     case auth
     case revoke
     case launch
+    case marketpay
 }
 
 final class SampleVC: UITableViewController {
@@ -25,7 +26,7 @@ final class SampleVC: UITableViewController {
     lazy var tableSchema: [(section: SampleSection, rows: [SampleRow])] =
         [
             (section: .auth, rows: [.auth, .revoke]),
-            (section: .method,  rows: [.launch])
+            (section: .method,  rows: [.launch, .marketpay])
         ]
     
     // MARK: - Lifecycle Methods
@@ -52,9 +53,7 @@ final class SampleVC: UITableViewController {
             }
             
         case .method:
-            if case .launch = row, !Merci.isAuthenticated() {
-                return .leastNonzeroMagnitude
-            }
+            return UITableView.automaticDimension
         }
         
         return UITableView.automaticDimension
@@ -94,6 +93,17 @@ final class SampleVC: UITableViewController {
                 switch result {
                 case .success:
                     debugPrint("Merchant available.")
+
+                case .failure(let error):
+                    debugPrint(error)
+                }
+            }
+            
+        case .marketpay:
+            Merci.launch(viewController: self, module: .marketpay, transition: .crossDissolve) { (result) in
+                switch result {
+                case .success:
+                    debugPrint("OK.")
 
                 case .failure(let error):
                     debugPrint(error)

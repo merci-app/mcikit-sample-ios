@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MCIKit
+import MerciKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

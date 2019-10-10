@@ -4,7 +4,7 @@ PODS:
     - Alamofire (~> 4.8)
   - KeychainAccess (3.2.0)
   - Kingfisher (5.3.1)
-  - MCIKit (0.1.0):
+  - MCIKit (1.1.0):
     - Alamofire (~> 4.8.2)
     - AlamofireNetworkActivityIndicator (~> 2.4.0)
     - KeychainAccess (~> 3.2.0)
@@ -14,10 +14,10 @@ PODS:
 
 DEPENDENCIES:
   - Kingfisher (from `https://github.com/onevcat/Kingfisher`, branch `ios9`)
-  - "MCIKit (from `git@github.com:merci-app/mcikit-podspec.git`, tag `0.1.0`)"
+  - "MCIKit (from `git@github.com:merci-app/mcikit-podspec.git`, tag `1.1.0`)"
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://cdn.cocoapods.org/:
     - Alamofire
     - AlamofireNetworkActivityIndicator
     - KeychainAccess
@@ -29,7 +29,7 @@ EXTERNAL SOURCES:
     :git: https://github.com/onevcat/Kingfisher
   MCIKit:
     :git: "git@github.com:merci-app/mcikit-podspec.git"
-    :tag: 0.1.0
+    :tag: 1.1.0
 
 CHECKOUT OPTIONS:
   Kingfisher:
@@ -37,16 +37,16 @@ CHECKOUT OPTIONS:
     :git: https://github.com/onevcat/Kingfisher
   MCIKit:
     :git: "git@github.com:merci-app/mcikit-podspec.git"
-    :tag: 0.1.0
+    :tag: 1.1.0
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AlamofireNetworkActivityIndicator: 9acc3de3ca6645bf0efed462396b0df13dd3e7b8
   KeychainAccess: 3b1bf8a77eb4c6ea1ce9404c292e48f948954c6b
   Kingfisher: 9a49f273eafaa38138c23e9ac299818907e45c44
-  MCIKit: 6577adc8b14e172ea65f50a6f3d33f7e07cbd3cd
+  MCIKit: cc64b9a9bdec59f1ac5e57c5ff8fb002b5a0ea1c
   TPKeyboardAvoiding: cb69d5ddbe90ce0170e4bc2db1e5e41d4a3ad9a4
 
-PODFILE CHECKSUM: f4651e17231ef6ade9bc7970b7e0f2bdde3ba63b
+PODFILE CHECKSUM: bbc87cf48b7a963f9f12f40cacbed0cf784f82ad
 
-COCOAPODS: 1.7.3
+COCOAPODS: 1.8.1
