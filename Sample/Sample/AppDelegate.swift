@@ -21,7 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             clientSecret: <#client secret: String#>,
             environment: <#environment: MerciEnvironment#>,
             primaryColor: <#primary color: UIColor?#>,
-            secondaryColor: <#secondary color: UIColor?#>
+            secondaryColor: <#secondary color: UIColor?#>,
+            clientName: <#client name: String?#>
         )
         
         return true
