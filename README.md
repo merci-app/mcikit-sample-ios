@@ -42,7 +42,7 @@ Para configurar o MCIKit em seu projeto adicione as dependências no `Podfile`:
 
 ```ruby
     pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher', :branch => 'ios9'
-    pod 'MCIKit', :git =>'https://github.com/merci-app/mcikit-podspec', :tag => "1.2.0"
+    pod 'MCIKit', :git =>'https://github.com/merci-app/mcikit-podspec', :tag => "1.2.1"
 ```
 
 ## Inicialização
@@ -65,10 +65,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             clientId: <#String#>,
             clientSecret: <#String#>,
             environment: <#MerciEnvironment>,
-            primaryColor: <#UIColor?#>,
-            secondaryColor: <#UIColor?#>,
             clientName: <#String?#>,
             homeImage: <#UIImage?#>,
+            merciBrandImage: <#UIImage?#>,
+            homeBackgroundColor: <#UIColor?#>,
+            homeTitleColor: <#UIColor?#>,
+            actionBarTintColor: <#UIColor?#>,
+            actionTintColor: <#UIColor?#>,
+            loadingTintColor: <#UIColor?#>,
             delegate: <#MerciDelegate?#>
         )
         
