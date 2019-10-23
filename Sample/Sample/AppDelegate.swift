@@ -16,13 +16,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        let clientId = ""
+        let clientSecret = ""
+        
+        assert(!clientId.isEmpty, "You need to setup clientId before starting SDK")
+        assert(!clientSecret.isEmpty, "You need to setup clientSecret before starting SDK")
+        
         Merci.instantiate(
-            clientId: <#client id: String#>,
-            clientSecret: <#client secret: String#>,
-            environment: <#environment: MerciEnvironment#>,
-            primaryColor: <#primary color: UIColor?#>,
-            secondaryColor: <#secondary color: UIColor?#>,
-            clientName: <#client name: String?#>
+            clientId: clientId,
+            clientSecret: clientSecret,
+            environment: .sandbox,
+            clientName: "SDK",
+            homeImage: UIImage(named: "ic_test"),
+            merciBrandImage: UIImage(named: "ic_test"),
+            homeBackgroundColor: .blue,
+            homeTitleColor: .white,
+            actionBarTintColor: .red,
+            actionTintColor: .green,
+            loadingTintColor: .red
         )
         
         return true
