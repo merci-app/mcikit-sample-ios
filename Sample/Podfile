@@ -7,6 +7,6 @@ target 'Sample' do
 
   # Pods for Sample
   pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher', :branch => 'ios9'
-  pod 'MCIKit', :git => 'https://github.com/merci-app/mcikit-podspec.git', :tag => "1.2.1"
+  pod 'MCIKit', :git => 'https://github.com/merci-app/mcikit-podspec.git', :tag => "1.2.2"
 
 end
