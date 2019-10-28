@@ -72,6 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             homeTitleColor: <#UIColor?#>,
             actionBarTintColor: <#UIColor?#>,
             actionTintColor: <#UIColor?#>,
+            actionTextTintColor: <#UIColor?#>,
             loadingTintColor: <#UIColor?#>,
             delegate: <#MerciDelegate?#>
         )
