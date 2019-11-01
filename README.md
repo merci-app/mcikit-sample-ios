@@ -1,5 +1,19 @@
 # Configurações Merci-Kit iOS
 
+## Informações:
+Merci-Kit utiliza o IDFA (Identifier for Advertisers).
+
+Quando for realizar uma entrega na App Store é necessário dizer que está sendo utilizado.
+
+✅ - Yes {Does this app use the Advertising Identifier (IDFA)?}
+
+✅ - Attribute this app installation to a previously served advertisement
+
+✅ - Attribute an action taken within this app to a previously served advertisement
+
+✅ - Limit ad tracking setting in iOS
+
+
 ## Pré-Requisitos
 ````ruby
     - iOS version: 9.0 ou superior
