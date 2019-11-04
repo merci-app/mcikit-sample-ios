@@ -3,7 +3,7 @@
 ## Pré-Requisitos
 ````ruby
     - iOS version: 9.0 ou superior
-    - Swift: 5.0 ou superior
+    - Swift: 5.1.2
     - CocoaPods
     - Info.plist
 ````
@@ -42,7 +42,7 @@ Para configurar o MCIKit em seu projeto adicione as dependências no `Podfile`:
 
 ```ruby
     pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher', :branch => 'ios9'
-    pod 'MCIKit', :git =>'https://github.com/merci-app/mcikit-podspec', :tag => "1.2.4"
+    pod 'MCIKit', :git =>'https://github.com/merci-app/mcikit-podspec', :tag => "1.2.5"
 ```
 
 ## Inicialização
