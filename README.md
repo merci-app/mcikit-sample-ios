@@ -17,7 +17,7 @@ Quando for realizar uma entrega na App Store é necessário dizer que está send
 ## Pré-Requisitos
 ````ruby
     - iOS version: 9.0 ou superior
-    - Swift: 5.0 ou superior
+    - Swift: 5.1
     - CocoaPods
     - Info.plist
 ````
