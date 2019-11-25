@@ -203,7 +203,7 @@ Merci.launch(viewController: self, module: .marketpay) { (result) in
 
 ## Notificações
 
-> **Nota**: Os objetos expostos nas notificações são todos no padrão JSON, permitindo a fácil leitura por qualquer plataforma, sem a necessidade da SDK externalizar nenhum estrutura interna.
+> **Nota**: Os objetos expostos nas notificações são todos no padrão JSON, permitindo a fácil leitura por qualquer plataforma.
 
 ### Notificação de autenticação:
 
