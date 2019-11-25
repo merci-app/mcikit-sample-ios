@@ -56,7 +56,7 @@ Para configurar o MCIKit em seu projeto adicione as dependências no `Podfile`:
 
 ```ruby
     pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher', :branch => 'ios9'
-    pod 'MCIKit', :git =>'https://github.com/merci-app/mcikit-podspec', :tag => "1.2.7"
+    pod 'MCIKit', :git =>'https://github.com/merci-app/mcikit-podspec', :tag => "1.3.0"
 ```
 
 ## Inicialização
@@ -211,7 +211,7 @@ Esta notificação retorna o horário em formato de **timestamp** *numérico* e 
 
 Nome da notificação:
 ```swift
-Merci.userAuthNotification
+Merci.userAuthenticationNotification
 ```
 Valor:
 ```swift
@@ -299,7 +299,7 @@ Objeto retornado na notificação:
 
 ```swift
     let nc = NotificationCenter.default
-    nc.addObserver(forName: Merci.userAuthNotification, object: nil, queue: .main) { (notification) in
+    nc.addObserver(forName: Merci.userAuthenticationNotification, object: nil, queue: .main) { (notification) in
         guard let dict = notification.object as? [String: Any] else {
             return
         }
