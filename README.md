@@ -56,7 +56,7 @@ Para configurar o MCIKit em seu projeto adicione as dependências no `Podfile`:
 
 ```ruby
     pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher', :branch => 'ios9'
-    pod 'MCIKit', :git =>'https://github.com/merci-app/mcikit-podspec', :tag => "1.2.6"
+    pod 'MCIKit', :git =>'https://github.com/merci-app/mcikit-podspec', :tag => "1.3.0"
 ```
 
 ## Inicialização
@@ -201,6 +201,113 @@ Merci.launch(viewController: self, module: .marketpay) { (result) in
 }
 ````
 
+## Notificações
+
+> **Nota**: Os objetos expostos nas notificações são todos no padrão JSON, permitindo a fácil leitura por qualquer plataforma.
+
+### Notificação de autenticação:
+
+Esta notificação retorna o horário em formato de **timestamp** *numérico* e o **status** como autenticado `authentticated` ou revogado `revoked`.
+
+Nome da notificação:
+```swift
+Merci.userAuthenticationNotification
+```
+Valor:
+```swift
+"MerciSDK_UserAuthenticationNotification"
+```
+Objeto retornado na notificação:
+````json
+{
+    "timestamp": "1573728019",
+    "status": "authenticaded|revoked"
+}
+````
+
+### Notificação de modulo:
+
+Esta notificação retorna o horário em formato de **timestamp** *numérico*, o **module** como `marketplace`, `payment`, `wallet` e o **status** como apresentado `presented` ou dispensado `dismissed`.
+
+Nome da notificação:
+```swift
+Merci.modulePresentationNotification
+```
+Valor:
+```swift
+"MerciSDK_ModulePresentationNotification"
+```
+Objeto retornado na notificação:
+````json
+{
+    "timestamp": "1573728019",
+    "module": "marketplace|payment|wallet",
+    "status": "presented|dismissed"
+}
+````
+
+### Notificação de apresentação de estabelecimento:
+
+Esta notificação retorna o horário em formato de **timestamp** *numérico*, o **merchant** com informações do identificador `id`, nome `name`, logo em seguida o **status** como apresentado `presented` ou dispensado `dismissed`.
+
+Nome da notificação:
+```swift
+Merci.merchantPresentationNotification
+```
+Valor:
+```swift
+"MerciSDK_MerchantPresentationNotification"
+```
+Objeto retornado na notificação:
+````json
+{
+    "timestamp": "1573728019",
+    "merchant": {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "name": "Nome do estabelecimento"
+    },
+    "status": "presented|dismissed"
+}
+````
+
+### Notificação de transação:
+
+Esta notificação retorna o horário em formato de **timestamp** *numérico*, o **merchant** com informações do identificador `id`, nome `name`, logo em seguida o valor **amount** *decimal*, **status** como iniciado `started`, cancelado `canceled`,  erro `failed`, concluído `completed`.
+
+Nome da notificação:
+```swift
+Merci.transactionNotification
+```
+Valor:
+```swift
+"MerciSDK_TransactionNotification"
+```
+Objeto retornado na notificação:
+````json
+{
+    "timestamp": "1573728019",
+    "merchant": {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "name": "Nome do estabelecimento"
+    },
+    "amount": 123.45,
+    "status": "started|canceled|failed|completed"
+}
+````
+
+### Exemplo
+
+```swift
+    let nc = NotificationCenter.default
+    nc.addObserver(forName: Merci.userAuthenticationNotification, object: nil, queue: .main) { (notification) in
+        guard let dict = notification.object as? [String: Any] else {
+            return
+        }
+        // dict["timestamp"]
+        // dict["status"]
+        <#code#>
+    }
+```
 ---
 
 [Merci @ 2019](https://merci.com.br)
