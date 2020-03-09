@@ -19,6 +19,7 @@ enum SampleRow {
     case revoke
     case launch
     case marketpay
+    case pay
 }
 
 final class SampleVC: UITableViewController {
@@ -26,7 +27,7 @@ final class SampleVC: UITableViewController {
     lazy var tableSchema: [(section: SampleSection, rows: [SampleRow])] =
         [
             (section: .auth, rows: [.auth, .revoke]),
-            (section: .method,  rows: [.launch, .marketpay])
+            (section: .method,  rows: [.launch, .marketpay, .pay])
         ]
     
     // MARK: - Lifecycle Methods
@@ -101,6 +102,17 @@ final class SampleVC: UITableViewController {
             
         case .marketpay:
             Merci.launch(viewController: self, module: .marketpay, transition: .crossDissolve) { (result) in
+                switch result {
+                case .success:
+                    debugPrint("OK.")
+
+                case .failure(let error):
+                    debugPrint(error)
+                }
+            }
+            
+        case .pay:
+            Merci.launch(viewController: self, module: .pay, transition: .crossDissolve) { (result) in
                 switch result {
                 case .success:
                     debugPrint("OK.")
