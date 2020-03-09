@@ -56,7 +56,7 @@ Para configurar o MCIKit em seu projeto adicione as dependências no `Podfile`:
 
 ```ruby
     pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher', :branch => 'ios9'
-    pod 'MCIKit', :git =>'https://github.com/merci-app/mcikit-podspec', :tag => "1.3.1"
+    pod 'MCIKit', :git =>'https://github.com/merci-app/mcikit-podspec', :tag => "1.3.2"
 ```
 
 ## Inicialização
@@ -191,6 +191,22 @@ Para iniciar a marketpay, é necessário chamar o método abaixo:
 
 ````swift
 Merci.launch(viewController: self, module: .marketpay) { (result) in
+    switch result {
+        case .success:
+            debugPrint("OK.")
+
+        case .failure(let error):
+            debugPrint(error)
+    }
+}
+````
+
+## Inciar o pagar
+
+Para iniciar o pagar, é necessário chamar o método abaixo:
+
+````swift
+Merci.launch(viewController: self, module: .pay) { (result) in
     switch result {
         case .success:
             debugPrint("OK.")
