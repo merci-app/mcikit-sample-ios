@@ -17,7 +17,7 @@ Quando for realizar uma entrega na App Store é necessário dizer que está send
 ## Pré-Requisitos
 ````ruby
     - iOS version: 9.0 ou superior
-    - Swift: 5.1.2
+    - Swift: 5.2.0
     - CocoaPods
     - Info.plist
 ````
@@ -56,7 +56,7 @@ Para configurar o MCIKit em seu projeto adicione as dependências no `Podfile`:
 
 ```ruby
     pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher', :branch => 'ios9'
-    pod 'MCIKit', :git =>'https://github.com/merci-app/mcikit-podspec', :tag => "1.3.2"
+    pod 'MCIKit', :git =>'https://github.com/merci-app/mcikit-podspec', :tag => "1.3.3"
 ```
 
 ## Inicialização
