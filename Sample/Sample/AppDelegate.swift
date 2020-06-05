@@ -8,6 +8,9 @@
 
 import UIKit
 import MerciKit
+import MarketPlaceKit
+import PayKit
+import WithdrawalKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -35,6 +38,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             actionTintColor: .green,
             loadingTintColor: .red
         )
+        
+        MarketPlace.register()
+        Pay.register()
+        Withdrawal.register()
         
         return true
     }

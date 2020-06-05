@@ -20,14 +20,15 @@ enum SampleRow {
     case launch
     case marketpay
     case pay
+    case withdraw
 }
 
 final class SampleVC: UITableViewController {
-
+    
     lazy var tableSchema: [(section: SampleSection, rows: [SampleRow])] =
         [
             (section: .auth, rows: [.auth, .revoke]),
-            (section: .method,  rows: [.launch, .marketpay, .pay])
+            (section: .method,  rows: [.launch, .marketpay, .pay, .withdraw])
         ]
     
     // MARK: - Lifecycle Methods
@@ -48,7 +49,7 @@ final class SampleVC: UITableViewController {
             if case .auth = row, Merci.isAuthenticated() {
                 return .leastNonzeroMagnitude
             }
-                
+            
             if case .revoke = row, !Merci.isAuthenticated() {
                 return .leastNonzeroMagnitude
             }
@@ -79,7 +80,7 @@ final class SampleVC: UITableViewController {
                     debugPrint(error)
                 }
             }
-        
+            
         case .revoke:
             Merci.revokeAuthentication { [weak self] (result) in
                 guard let self = self else { return }
@@ -88,13 +89,13 @@ final class SampleVC: UITableViewController {
                     self.tableView.reloadData()
                 }
             }
-        
+            
         case .launch:
             Merci.launch(viewController: self, module: .merchant(<#merchant id: String#>), transition: .crossDissolve) { (result) in
                 switch result {
                 case .success:
                     debugPrint("Merchant available.")
-
+                    
                 case .failure(let error):
                     debugPrint(error)
                 }
@@ -105,7 +106,7 @@ final class SampleVC: UITableViewController {
                 switch result {
                 case .success:
                     debugPrint("OK.")
-
+                    
                 case .failure(let error):
                     debugPrint(error)
                 }
@@ -116,14 +117,26 @@ final class SampleVC: UITableViewController {
                 switch result {
                 case .success:
                     debugPrint("OK.")
-
+                    
                 case .failure(let error):
                     debugPrint(error)
                 }
             }
+            
+        case .withdraw:
+            Merci.launch(viewController: self, module: .withdrawal(enableSupport: false), transition: .crossDissolve) { (result) in
+                switch result {
+                case .success:
+                    debugPrint("OK.")
+                    
+                case .failure(let error):
+                    debugPrint(error)
+                }
+                
+            }
         }
     }
-
+    
     // MARK: - Memory Management
     
     deinit {
