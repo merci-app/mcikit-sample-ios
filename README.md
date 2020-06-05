@@ -56,7 +56,10 @@ Para configurar o MCIKit em seu projeto adicione as dependências no `Podfile`:
 
 ```ruby
     pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher', :branch => 'ios9'
-    pod 'MCIKit', :git =>'https://github.com/merci-app/mcikit-podspec', :tag => "1.3.5"
+    pod 'MCIKit', :git =>'https://github.com/merci-app/mcikit-podspec', :tag => "1.4.0"
+    pod 'MarketPlaceKit', :git =>'https://github.com/merci-app/marketplacekit-podspec', :tag => "1.0.0"
+    pod 'PayKit', :git =>'https://github.com/merci-app/paykit-podspec', :tag => "1.0.0"
+    pod 'WithdrawalKit', :git =>'https://github.com/merci-app/withdrawalkit-podspec', :tag => "1.0.0"
 ```
 
 ## Inicialização
@@ -65,6 +68,9 @@ A framework deverá ser iniciada dentro do `application delegate` como a seguir:
 ````swift
 import UIKit
 import MerciKit
+import MarketPlaceKit
+import PayKit
+import WithdrawalKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -90,6 +96,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             loadingTintColor: <#UIColor?#>,
             delegate: <#MerciDelegate?#>
         )
+
+        MarketPlace.register()
+        Pay.register()
+        Withdrawal.register()
         
         return true
     }
@@ -102,6 +112,7 @@ A instrução de delegação é opcional e utiliza o seguinte `protocol`:
 public protocol MerciDelegate {
     func supportFlow(reason: String?) -> UIViewController?
     func authenticationFlow() -> UIViewController
+    func withdrawSupport() -> UIViewController?
 }
 ````
 
@@ -207,6 +218,22 @@ Para iniciar o pagar, é necessário chamar o método abaixo:
 
 ````swift
 Merci.launch(viewController: self, module: .pay) { (result) in
+    switch result {
+        case .success:
+            debugPrint("OK.")
+
+        case .failure(let error):
+            debugPrint(error)
+    }
+}
+````
+
+## Inciar o sacar
+
+Para iniciar o sacar, é necessário chamar o método abaixo:
+
+````swift
+Merci.launch(viewController: self, module: .withdrawal(enableSupport: false)) { (result) in
     switch result {
         case .success:
             debugPrint("OK.")
