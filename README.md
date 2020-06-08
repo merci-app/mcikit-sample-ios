@@ -230,7 +230,7 @@ Merci.launch(viewController: self, module: .pay) { (result) in
 
 ## Inciar o sacar
 
-Para iniciar o sacar, é necessário chamar o método abaixo:
+Para iniciar o sacar, é necessário chamar o método abaixo, caso enableSupport for true, será exibido um ícone de help (?) e quando o usuário clicar será executado o delegate withdrawSupport:
 
 ````swift
 Merci.launch(viewController: self, module: .withdrawal(enableSupport: false)) { (result) in
