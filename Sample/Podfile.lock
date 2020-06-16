@@ -10,7 +10,7 @@ PODS:
     - KeychainAccess (~> 3.2.0)
     - Kingfisher
     - TPKeyboardAvoiding (~> 1.3)
-  - MCIKit (1.4.1):
+  - MCIKit (1.4.2):
     - Alamofire (~> 4.8.2)
     - AlamofireNetworkActivityIndicator (~> 2.4.0)
     - KeychainAccess (~> 3.2.0)
@@ -33,7 +33,7 @@ PODS:
 DEPENDENCIES:
   - Kingfisher (from `https://github.com/onevcat/Kingfisher`, branch `ios9`)
   - MarketPlaceKit (from `https://github.com/merci-app/marketplacekit-podspec`, tag `1.0.1`)
-  - MCIKit (from `https://github.com/merci-app/mcikit-podspec`, tag `1.4.1`)
+  - MCIKit (from `https://github.com/merci-app/mcikit-podspec`, tag `1.4.2`)
   - PayKit (from `https://github.com/merci-app/paykit-podspec`, tag `1.0.1`)
   - WithdrawalKit (from `https://github.com/merci-app/withdrawalkit-podspec`, tag `1.0.1`)
 
@@ -53,7 +53,7 @@ EXTERNAL SOURCES:
     :tag: 1.0.1
   MCIKit:
     :git: https://github.com/merci-app/mcikit-podspec
-    :tag: 1.4.1
+    :tag: 1.4.2
   PayKit:
     :git: https://github.com/merci-app/paykit-podspec
     :tag: 1.0.1
@@ -70,7 +70,7 @@ CHECKOUT OPTIONS:
     :tag: 1.0.1
   MCIKit:
     :git: https://github.com/merci-app/mcikit-podspec
-    :tag: 1.4.1
+    :tag: 1.4.2
   PayKit:
     :git: https://github.com/merci-app/paykit-podspec
     :tag: 1.0.1
@@ -84,11 +84,11 @@ SPEC CHECKSUMS:
   KeychainAccess: d5470352939ced6d6f7fb51cb2e67aae51fc294f
   Kingfisher: 10a7e4a46cee34711cdbf72a14d5a830ccb3aca1
   MarketPlaceKit: bff7a17687276882eb75b0a88b31934486721592
-  MCIKit: 2bcf0c664b2309f7a9cf5314f189b6e18a46dc7e
+  MCIKit: 15e07d71121f874b7623ce9837739266b631ad56
   PayKit: 598d247d956c24214eaf0835453b977ab21e28d6
   TPKeyboardAvoiding: 6dd3fe3268b8f2627beb7ff3d82a3cacbdf66a36
   WithdrawalKit: 655beac94e28350a4148639ace8d867a28d4bfe2
 
-PODFILE CHECKSUM: ab11d7821fb767ca5384a760dd0311ab2049f1d7
+PODFILE CHECKSUM: f7878001293dd9a3ce922eabce91b7da3c2d4004
 
 COCOAPODS: 1.9.1
