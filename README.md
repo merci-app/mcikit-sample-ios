@@ -56,10 +56,10 @@ Para configurar o MCIKit em seu projeto adicione as dependências no `Podfile`:
 
 ```ruby
     pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher', :branch => 'ios9'
-    pod 'MCIKit', :git =>'https://github.com/merci-app/mcikit-podspec', :tag => "1.4.2"
-    pod 'MarketPlaceKit', :git =>'https://github.com/merci-app/marketplacekit-podspec', :tag => "1.0.1"
-    pod 'PayKit', :git =>'https://github.com/merci-app/paykit-podspec', :tag => "1.0.1"
-    pod 'WithdrawalKit', :git =>'https://github.com/merci-app/withdrawalkit-podspec', :tag => "1.0.2"
+    pod 'MCIKit', :git =>'https://github.com/merci-app/mcikit-podspec', :tag => "1.4.3"
+    pod 'MarketPlaceKit', :git =>'https://github.com/merci-app/marketplacekit-podspec', :tag => "1.0.2"
+    pod 'PayKit', :git =>'https://github.com/merci-app/paykit-podspec', :tag => "1.0.2"
+    pod 'WithdrawalKit', :git =>'https://github.com/merci-app/withdrawalkit-podspec', :tag => "1.0.3"
 ```
 
 ## Inicialização
