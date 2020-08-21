@@ -26,10 +26,11 @@ Quando for realizar uma entrega na App Store é necessário dizer que está send
 
 ### CocoaPods
 ````ruby
-    - Alamofire - 4.9.1
+    - Alamofire - <= 4.9.1
     - Kingfisher - :branch => 'ios9'
     - KeychainAccess - 4.2.0
     - TPKeyboardAvoiding - 1.3
+    - SwiftyRSA - >= 1.5.0
 ````
 
 ### Info.plist:
@@ -56,11 +57,16 @@ Para configurar o MCIKit em seu projeto adicione as dependências no `Podfile`:
 
 ```ruby
     pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher', :branch => 'ios9'
-    pod 'MCIKit', :git =>'https://github.com/merci-app/mcikit-podspec', :tag => "1.5.0"
-    pod 'MarketPlaceKit', :git =>'https://github.com/merci-app/marketplacekit-podspec', :tag => "1.0.5"
-    pod 'PayKit', :git =>'https://github.com/merci-app/paykit-podspec', :tag => "1.0.5"
-    pod 'WithdrawalKit', :git =>'https://github.com/merci-app/withdrawalkit-podspec', :tag => "1.0.5"
+    pod 'MCIKit', :git =>'https://github.com/merci-app/mcikit-podspec', :tag => "1.5.1"
+    pod 'MarketPlaceKit', :git =>'https://github.com/merci-app/marketplacekit-podspec', :tag => "1.0.6"
+    pod 'PayKit', :git =>'https://github.com/merci-app/paykit-podspec', :tag => "1.0.6"
+    pod 'WithdrawalKit', :git =>'https://github.com/merci-app/withdrawalkit-podspec', :tag => "1.0.6"
 ```
+
+## Whitelist
+Para a utilização do SDK é necessário o envio de algumas informações do aplicativo cliente para que o mesmo entre na nossa lista de Whitelist. Para isso é necessário enviar as seguintes informações:
+
+_AppId_: O mesmo usado para a App Store do. Ex.: com.ios.app.cliente 
 
 ## Inicialização
 A framework deverá ser iniciada dentro do `application delegate` como a seguir:
@@ -94,7 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             actionTintColor: <#UIColor?#>,
             actionTextTintColor: <#UIColor?#>,
             loadingTintColor: <#UIColor?#>,
-            clientSecurityDelegate: <#MerciClientSecurityDelegate?#>
+            clientSecurityDelegate: <#MerciClientSecurityDelegate?#>,
             delegate: <#MerciDelegate?#>
         )
 
