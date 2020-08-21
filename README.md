@@ -28,7 +28,7 @@ Quando for realizar uma entrega na App Store é necessário dizer que está send
 ````ruby
     - Alamofire - <= 4.9.1
     - Kingfisher - :branch => 'ios9'
-    - KeychainAccess - 4.2.0
+    - KeychainAccess <= 4.2.0
     - TPKeyboardAvoiding - 1.3
     - SwiftyRSA - >= 1.5.0
 ````
@@ -57,10 +57,10 @@ Para configurar o MCIKit em seu projeto adicione as dependências no `Podfile`:
 
 ```ruby
     pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher', :branch => 'ios9'
-    pod 'MCIKit', :git =>'https://github.com/merci-app/mcikit-podspec', :tag => "1.5.1"
-    pod 'MarketPlaceKit', :git =>'https://github.com/merci-app/marketplacekit-podspec', :tag => "1.0.6"
-    pod 'PayKit', :git =>'https://github.com/merci-app/paykit-podspec', :tag => "1.0.6"
-    pod 'WithdrawalKit', :git =>'https://github.com/merci-app/withdrawalkit-podspec', :tag => "1.0.6"
+    pod 'MCIKit', :git =>'https://github.com/merci-app/mcikit-podspec', :tag => "1.5.2"
+    pod 'MarketPlaceKit', :git =>'https://github.com/merci-app/marketplacekit-podspec', :tag => "1.0.7"
+    pod 'PayKit', :git =>'https://github.com/merci-app/paykit-podspec', :tag => "1.0.7"
+    pod 'WithdrawalKit', :git =>'https://github.com/merci-app/withdrawalkit-podspec', :tag => "1.0.7"
 ```
 
 ## Whitelist
