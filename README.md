@@ -26,9 +26,9 @@ Quando for realizar uma entrega na App Store é necessário dizer que está send
 
 ### CocoaPods
 ````ruby
-    - Alamofire - 4.8.2
+    - Alamofire - 4.9.1
     - Kingfisher - :branch => 'ios9'
-    - KeychainAccess - 3.2.0
+    - KeychainAccess - 4.2.0
     - TPKeyboardAvoiding - 1.3
 ````
 
@@ -56,10 +56,10 @@ Para configurar o MCIKit em seu projeto adicione as dependências no `Podfile`:
 
 ```ruby
     pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher', :branch => 'ios9'
-    pod 'MCIKit', :git =>'https://github.com/merci-app/mcikit-podspec', :tag => "1.4.3"
-    pod 'MarketPlaceKit', :git =>'https://github.com/merci-app/marketplacekit-podspec', :tag => "1.0.2"
-    pod 'PayKit', :git =>'https://github.com/merci-app/paykit-podspec', :tag => "1.0.2"
-    pod 'WithdrawalKit', :git =>'https://github.com/merci-app/withdrawalkit-podspec', :tag => "1.0.3"
+    pod 'MCIKit', :git =>'https://github.com/merci-app/mcikit-podspec', :tag => "1.5.0"
+    pod 'MarketPlaceKit', :git =>'https://github.com/merci-app/marketplacekit-podspec', :tag => "1.0.5"
+    pod 'PayKit', :git =>'https://github.com/merci-app/paykit-podspec', :tag => "1.0.5"
+    pod 'WithdrawalKit', :git =>'https://github.com/merci-app/withdrawalkit-podspec', :tag => "1.0.5"
 ```
 
 ## Inicialização
@@ -94,6 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             actionTintColor: <#UIColor?#>,
             actionTextTintColor: <#UIColor?#>,
             loadingTintColor: <#UIColor?#>,
+            clientSecurityDelegate: <#MerciClientSecurityDelegate?#>
             delegate: <#MerciDelegate?#>
         )
 
@@ -106,6 +107,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 ````
+
+A instrução de delegação é opcional e utiliza o seguinte `protocol`
+````swift
+public protocol MerciClientSecurityDelegate {
+    func externalToken() -> String
+}
+````
+
+Caso seja necessário implementar, segue abaixo um exemplo:
+````swift
+import MerciKit
+
+class SampleSecurityDelegate: MerciClientSecurityDelegate {
+
+    public func externalToken() -> String {
+        return "0123456789"
+    }
+
+}
+
 
 A instrução de delegação é opcional e utiliza o seguinte `protocol`:
 ````swift
@@ -353,4 +374,4 @@ Objeto retornado na notificação:
 ```
 ---
 
-[Merci @ 2019](https://merci.com.br)
+[Merci @ 2020](https://merci.com.br)
