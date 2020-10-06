@@ -68,6 +68,23 @@ Para a utilização do SDK é necessário o envio de algumas informações do ap
 
 _AppId_: O mesmo usado para a App Store do. Ex.: com.ios.app.cliente 
 
+## API
+Deverá ser fornecido uma API REST que possua uma rota autenticada para que seja possível realizar a validação do _token_ fornecido pelo aplicativo.
+Nessa API iremos enviar o _token_ e o _vat-number_, a API deverá responder com um código de retorno **2XX** quando válido e **4XX** para informações invalidas.
+
+### Exemplo
+
+```
+REST URL: https://BASE_URL/VALIDATION_PATH
+METHODS: [POST|PUT|DELETE]
+REQUEST: {
+    vatNumber: "",
+    token: ""
+}
+RESPONSE:
+RESPONSE CODE: [2XX|4XX]
+```
+
 ## Inicialização
 A framework deverá ser iniciada dentro do `application delegate` como a seguir:
 
